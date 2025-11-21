@@ -23,7 +23,7 @@ class Board:
         #   grid[row][col] where row 0 is the *bottom* of the board
         self.grid = [[EMPTY for _ in range(COLS)] for _ in range(ROWS)]
 
-    # ---------- core game rules ----------
+    # core game rules
 
     def get_legal_moves(self):
         """Return list of columns (0–6) that are not full."""
@@ -68,7 +68,7 @@ class Board:
         """Return True if the whole board is full (draw if no winner)."""
         return all(self.grid[ROWS - 1][c] != EMPTY for c in range(COLS))
 
-    # ---------- win & terminal checks ----------
+    # win & terminal checks 
 
     def check_winner(self):
         """
@@ -113,7 +113,6 @@ class Board:
         """True if game is over: someone won or board is full."""
         return self.check_winner() != EMPTY or self.is_full()
 
-    # ---------- printing / debugging ----------
 
     def __str__(self):
         """
@@ -141,7 +140,7 @@ class Board:
         return "\n".join(lines)
 
 
-# ---------- simple human vs human CLI for testing the rules ----------
+#  simple human vs human 
 
 def play_human_vs_human():
     board = Board()

@@ -64,9 +64,7 @@ class MinimaxAgent(Agent):
 
         return best_move
 
-    # ------------------------------------------------------------------
-    # Fixed-depth search for one ply of iterative deepening
-    # ------------------------------------------------------------------
+    # Fixed-depth search
     def _search_depth(self, board, depth, deadline, move_order):
         """Search to fixed depth with minimax (and optional alpha–beta)."""
         best_value = -math.inf
@@ -95,9 +93,8 @@ class MinimaxAgent(Agent):
 
         return best_value, best_move
 
-    # ------------------------------------------------------------------
     # Alpha–beta minimax
-    # ------------------------------------------------------------------
+
     def _max_value(self, board, depth, alpha, beta, deadline):
         if time.perf_counter() >= deadline:
             raise SearchTimeout()
@@ -155,9 +152,8 @@ class MinimaxAgent(Agent):
                 break
         return value
 
-    # ------------------------------------------------------------------
     # Plain minimax (no alpha–beta) for comparison / ablation
-    # ------------------------------------------------------------------
+
     def _max_value_plain(self, board, depth, deadline):
         if time.perf_counter() >= deadline:
             raise SearchTimeout()
